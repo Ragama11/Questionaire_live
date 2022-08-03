@@ -4,10 +4,10 @@ defmodule QuestionaireLive.Quizes.Question do
 
   schema "questions" do
     field :question, :string
-    field :quiz_id, :id
     has_many :answers, QuestionaireLive.Quizes.Answer
     belongs_to :subject, QuestionaireLive.Quizes.Subject
-    
+    belongs_to :quiz, QuestionaireLive.Quizes.Quiz
+
 
     timestamps()
   end

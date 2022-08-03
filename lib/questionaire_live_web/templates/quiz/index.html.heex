@@ -1,0 +1,5 @@
+<ul>
+    <%=for quiz <- @quizes  do%>
+    <li><%= link( quiz.name, to: Routes.quiz_path(@conn, :show, quiz)) %></li>
+    <%end %>
+</ul>

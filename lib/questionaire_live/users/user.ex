@@ -5,10 +5,14 @@ defmodule QuestionaireLive.Users.User do
 
 
   schema "users" do
+    pow_user_fields()
     field :role, :string, default: "user"
+    field :first_name, :string
+    field :last_name, :string
+    field :phone, :string
+
     has_many :user_quizes, QuestionaireLive.Quizes.User_quiz
 
-    pow_user_fields()
 
     timestamps()
   end

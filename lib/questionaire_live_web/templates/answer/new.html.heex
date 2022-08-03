@@ -1,0 +1,14 @@
+<h1 >
+<%= @question.question %>
+</h1>
+
+<%= form_for @changeset, Routes.answer_path(@conn, :create_answer, @quiz, @question ), fn f -> %>
+  
+
+  <label>
+    Answer: <%= text_input f, :value %>
+    <%= checkbox(f, :is_correct)%>  
+  </label>
+
+  <%= submit "Submit" %>
+<% end %>

@@ -1,0 +1,7 @@
+<%= form_for @changeset, Routes.question_path(@conn, :create_question, @quiz ), fn f -> %>
+  <label>
+    Name: <%= text_input f, :question %>
+  </label>
+
+  <%= submit "Submit" %>
+<% end %>

@@ -5,6 +5,7 @@ defmodule QuestionaireLive.Quizes.Quiz do
   schema "quizes" do
     field :name, :string
     has_many :user_quizes, QuestionaireLive.Quizes.User_quiz
+    has_many :questions, QuestionaireLive.Quizes.Question
 
     timestamps()
   end

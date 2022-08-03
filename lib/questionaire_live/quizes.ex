@@ -35,7 +35,7 @@ defmodule QuestionaireLive.Quizes do
       ** (Ecto.NoResultsError)
 
   """
-  def get_quiz!(id), do: Repo.get!(Quiz, id)
+  def get_quiz!(id), do: Repo.get!(Quiz, id) |>  Repo.preload([:questions])
 
   @doc """
   Creates a quiz.
@@ -227,7 +227,7 @@ defmodule QuestionaireLive.Quizes do
       ** (Ecto.NoResultsError)
 
   """
-  def get_question!(id), do: Repo.get!(Question, id)
+  def get_question!(id), do: Repo.get!(Question, id) |>  Repo.preload([:answers])
 
   @doc """
   Creates a question.
@@ -357,7 +357,7 @@ defmodule QuestionaireLive.Quizes do
     |> Repo.insert()
   end
 
-  def add_answer(question, attrs) do
+  def add_question_answer(question, attrs) do
     question
     |> Ecto.build_assoc(:answers)
     |> Answer.changeset(attrs)
