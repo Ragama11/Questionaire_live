@@ -227,7 +227,8 @@ defmodule QuestionaireLive.Quizes do
       ** (Ecto.NoResultsError)
 
   """
-  def get_question!(id), do: Repo.get!(Question, id) |>  Repo.preload([:answers])
+  def get_question!(id), do: Repo.get!(Question, id)
+  # |>  Repo.preload([:answers])
 
   @doc """
   Creates a question.

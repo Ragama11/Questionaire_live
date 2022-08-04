@@ -31,14 +31,17 @@ defmodule QuestionaireLiveWeb.Router do
     get "/quiz/new", QuizController, :new
     post "/quiz/new", QuizController, :create
     get "/quiz/:quiz_id", QuizController, :show
+    get "/quiz/:quiz_id/edit", QuizController, :edit
+    put "/quiz/:quiz_id/edit", QuizController, :complete_edit
+    delete "/quiz/:quiz_id",QuizController,  :delete_quiz
 
     # show answers
     get "/quiz/:quiz_id/new", QuestionController, :new_question
     post "/quiz/:quiz_id/new", QuestionController, :create_question
     get "/quiz/:quiz_id/:question_id", QuestionController, :show_question
-    
+
     get "/quiz/:quiz_id/:question_id/edit", QuestionController, :edit_question
-    post "/quiz/:quiz_id/:question_id/edit", QuestionController, :update_question
+    post "/quiz/:quiz_id/:question_id/edit", QuestionController, :complete_edit
 
     get "/quiz/:quiz_id/:question_id/new/answer", AnswerController, :new_answer
     post "/quiz/:quiz_id/:question_id/new/answer", AnswerController, :create_answer

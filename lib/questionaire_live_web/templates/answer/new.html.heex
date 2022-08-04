@@ -7,8 +7,8 @@
 
   <label>
     Answer: <%= text_input f, :value %>
-    <%= checkbox(f, :is_correct)%>  
+    <%= checkbox(f, :is_correct)%> <p>is correct</p>
   </label>
 
-  <%= submit "Submit" %>
+  <%= submit "Submit", class: "btn1"  %>
 <% end %>

@@ -15,5 +15,7 @@ defmodule QuestionaireLive.Quizes.Answer do
     answer
     |> cast(attrs, [:value])
     |> validate_required([:value])
+    |> unique_constraint(:value)
+
   end
 end

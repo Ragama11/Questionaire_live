@@ -1,5 +1,10 @@
-<ul>
+<h1>QUESTIONAIRE QUIZES</h1><button class="btn btn-primary"><%= link("New Quiz", to: Routes.quiz_path(@conn, :new))%></button>
+
+<ol>
     <%=for quiz <- @quizes  do%>
     <li><%= link( quiz.name, to: Routes.quiz_path(@conn, :show, quiz)) %></li>
+    <button class="btn btn-primary"><%= link("Edit", to: Routes.quiz_path(@conn, :edit, quiz))%></button>
+    
+    <%= link("delete", to: Routes.quiz_path(@conn, :delete_quiz, quiz), method: :delete) %>
     <%end %>
-</ul>
+</ol>

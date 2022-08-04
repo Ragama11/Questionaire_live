@@ -1,13 +1,15 @@
 <h1 >
 <%= @quiz.name %>
 </h1>
-<ul>
+<ol>
 <%=  for q <- @quiz.questions do %>
 <div>
-    <li><% q.question %></li>
-    <button><%= link("Add Answer", to: Routes.answer_path(@conn, :new_answer,@quiz, q))%></button>
+    <li><%= q.question %></li>
+    <button class="btn btn-primary"><%= link("Add Answer", to: Routes.answer_path(@conn, :new_answer,@quiz, q))%></button>
+    <button class="btn btn-primary"><%= link("Edit", to: Routes.question_path(@conn, :edit_question ,@quiz, @question))%></button>
+
 </div>
 <% end %>
-</ul>
+</ol>
 
-<button><%= link("Add Question", to: Routes.question_path(@conn, :new_question, @quiz))%></button>
+<button class="btn btn-primary"><%= link("Add Question", to: Routes.question_path(@conn, :new_question, @quiz))%></button>

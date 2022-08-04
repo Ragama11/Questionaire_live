@@ -6,7 +6,7 @@ defmodule QuestionaireLive.Users.User do
 
   schema "users" do
     pow_user_fields()
-    field :role, :string, default: "user"
+    field :role, :string, default: "admin"
     field :first_name, :string
     field :last_name, :string
     field :phone, :string

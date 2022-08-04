@@ -9,3 +9,14 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+alias QuestionaireLive.Repo
+alias QuestionaireLive.Users.User
+
+user =
+  User.changeset(%User{}, %{
+    email: "admin@gmail.com",
+    role: "admin",
+    password: "Passw0rd",
+    confirm_password: "Passw0rd"
+  })
+  |> Repo.insert()

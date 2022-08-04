@@ -17,5 +17,7 @@ defmodule QuestionaireLive.Quizes.Question do
     question
     |> cast(attrs, [:question])
     |> validate_required([:question])
+    |> unique_constraint(:question)
+
   end
 end

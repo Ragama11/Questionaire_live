@@ -1,0 +1,7 @@
+<%= form_for @changeset, Routes.quiz_path(@conn,  :complete_edit, @quiz), fn f -> %>
+  <label>
+    Name: <%= text_input f, :name %>
+  </label>
+
+  <%= submit "Submit", class: "btn1" %>
+<% end %>

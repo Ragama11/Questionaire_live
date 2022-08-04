@@ -24,7 +24,6 @@ defmodule QuestionaireLiveWeb.QuizController do
   end
 
   def create(conn, %{"quiz" => quiz_params}) do
-
     changeset = Quizes.change_quiz(%Quiz{}, quiz_params)
 
     case Repo.insert(changeset) do
@@ -36,5 +35,53 @@ defmodule QuestionaireLiveWeb.QuizController do
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
+  end
+
+  def edit(conn, %{"quiz_id" => quiz_id}) do
+    quiz = Quizes.get_quiz!(quiz_id)
+
+    changeset = Quizes.change_quiz(quiz)
+    render(conn, "edit.html", quiz: quiz, changeset: changeset)
+  end
+
+  def complete_edit(conn, %{"quiz" => quiz_params,"quiz_id" => quiz_id}) do
+    quiz = Quizes.get_quiz!(quiz_id)
+
+    changeset = Quizes.change_quiz(quiz, quiz_params)
+
+    case Repo.update(changeset) do
+      {:ok, _quiz} ->
+        conn
+        |> put_flash(:info, "quiz updated successfully.")
+        |> redirect(to: Routes.quiz_path(conn, :index))
+
+
+
+      {:error, %Ecto.Changeset{} = changeset} ->
+        IO.inspect(changeset)
+        render(conn, "edit.html", changeset: changeset)
+
+    end
+  end
+
+  def delete_quiz(conn, %{"quiz_id" => quiz_id}) do
+
+
+    quiz = Quizes.get_quiz!(quiz_id)
+
+    case Quizes.delete_quiz(quiz) do
+      {:ok, quiz} ->
+        IO.inspect(quiz)
+        conn
+        |> put_flash(:info, "Quiz deleted successfully.")
+        |> redirect(to: Routes.quiz_path(conn, :index))
+      {:error, error} ->
+        IO.inspect(error)
+        conn
+        |> put_flash(:info, "Quiz deleted successfully.")
+        |> redirect(to: Routes.quiz_path(conn, :index))
+
+    end
+
   end
 end
