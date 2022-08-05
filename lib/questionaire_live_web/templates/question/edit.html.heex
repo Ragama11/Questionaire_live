@@ -1,4 +1,4 @@
-<%= form_for @changeset, Routes.question_path(@conn,  :complete_edit, @question), fn f -> %>
+<%= form_for @changeset, Routes.question_path(@conn,  :complete_edit, @quiz, @question), fn f -> %>
   <label>
     Question: <%= text_input f, :question %>
   </label>

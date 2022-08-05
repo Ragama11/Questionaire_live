@@ -1,0 +1,11 @@
+<h1>
+<%= @quiz.question %>
+</h1>
+<ol>
+<%= for a <- @question.answers do %>
+
+    <div>
+        <li><%= a.valu %></li>
+    </div>
+<% end %>
+</ol>

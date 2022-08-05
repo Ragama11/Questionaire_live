@@ -4,9 +4,11 @@
 <ol>
 <%=  for q <- @quiz.questions do %>
 <div>
-    <li><%= q.question %></li>
+    <li><%= link(q.question, to: Routes.question_path(@conn, :show_question, @quiz, q)) %></li>
     <button class="btn btn-primary"><%= link("Add Answer", to: Routes.answer_path(@conn, :new_answer,@quiz, q))%></button>
-    <button class="btn btn-primary"><%= link("Edit", to: Routes.question_path(@conn, :edit_question ,@quiz, @question))%></button>
+    <button class="btn btn-primary"><%= link("Edit", to: Routes.question_path(@conn, :edit_question ,@quiz, q))%></button>
+    <button class="btn btn-primary"><%= link("Delete", to: Routes.question_path(@conn, :delete_question ,@quiz, q), method: :delete)%></button>
+
 
 </div>
 <% end %>

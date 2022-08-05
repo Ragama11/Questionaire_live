@@ -41,7 +41,9 @@ defmodule QuestionaireLiveWeb.Router do
     get "/quiz/:quiz_id/:question_id", QuestionController, :show_question
 
     get "/quiz/:quiz_id/:question_id/edit", QuestionController, :edit_question
-    post "/quiz/:quiz_id/:question_id/edit", QuestionController, :complete_edit
+    put "/quiz/:quiz_id/:question_id/editc", QuestionController, :complete_edit
+    delete "/quiz/:quiz_id/:question_id",QuestionController,  :delete_question
+
 
     get "/quiz/:quiz_id/:question_id/new/answer", AnswerController, :new_answer
     post "/quiz/:quiz_id/:question_id/new/answer", AnswerController, :create_answer
