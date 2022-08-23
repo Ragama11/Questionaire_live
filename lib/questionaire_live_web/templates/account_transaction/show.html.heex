@@ -1,0 +1,28 @@
+<h1>Show Account transaction</h1>
+
+<ul>
+
+  <li>
+    <strong>Account:</strong>
+    <%= @account_transaction.account_id %>
+  </li>
+
+  <li>
+    <strong>Transaction type:</strong>
+    <%= @account_transaction.transaction_type %>
+  </li>
+
+  <li>
+    <strong>Currency:</strong>
+    <%= @account_transaction.currency %>
+  </li>
+
+  <li>
+    <strong>Amount:</strong>
+    <%= @account_transaction.amount %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.account_transaction_path(@conn, :edit, @account_transaction) %></span> |
+<span><%= link "Back", to: Routes.account_transaction_path(@conn, :index) %></span>

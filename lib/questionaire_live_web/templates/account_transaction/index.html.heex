@@ -1,0 +1,32 @@
+<h1>Listing Account transactions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Account</th>
+      <th>Transaction type</th>
+      <th>Currency</th>
+      <th>Amount</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for account_transaction <- @account_transactions do %>
+    <tr>
+      <td><%= account_transaction.account_id %></td>
+      <td><%= account_transaction.transaction_type %></td>
+      <td><%= account_transaction.currency %></td>
+      <td><%= account_transaction.amount %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.account_transaction_path(@conn, :show, account_transaction) %></span>
+        <span><%= link "Edit", to: Routes.account_transaction_path(@conn, :edit, account_transaction) %></span>
+        <span><%= link "Delete", to: Routes.account_transaction_path(@conn, :delete, account_transaction), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Account transaction", to: Routes.account_transaction_path(@conn, :new) %></span>

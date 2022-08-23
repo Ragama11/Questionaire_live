@@ -13,7 +13,7 @@ defmodule QuestionaireLive.QuizesFixtures do
       |> Enum.into(%{
         name: "some name"
       })
-      |> QuestionaireLive.Quizes.create_quiz()
+      |> QuestionaireLive.Quizes.Quiz.create_quiz()
 
     quiz
   end
@@ -27,7 +27,7 @@ defmodule QuestionaireLive.QuizesFixtures do
       |> Enum.into(%{
         name: "some name"
       })
-      |> QuestionaireLive.Quizes.create_subject()
+      |> QuestionaireLive.Quizes.Subject.create_subject()
 
     subject
   end
@@ -55,7 +55,7 @@ defmodule QuestionaireLive.QuizesFixtures do
       |> Enum.into(%{
         value: "some value"
       })
-      |> QuestionaireLive.Quizes.create_answer()
+      |> QuestionaireLive.Quizes.Answer.create_answer()
 
     answer
   end

@@ -50,6 +50,14 @@ defmodule QuestionaireLiveWeb.Router do
     get "/quiz/:quiz_id/:question_id/:answer_id", AnswerController, :show_answer
     get "/quiz/:quiz_id/:question_id/:answer_id/edit", AnswerController, :edit_answer
     post "/quiz/:quiz_id/:question_id/:answer_id/edit", AnswerController, :update_answer
+    resources "/accounts", AccountController
+    resources "/account_transactions", Account_transactionController
+    resources "/deposits", DepositController
+    resources "/withdrawals", WithdrawalController
+
+
+
+
 
     # ...
   end

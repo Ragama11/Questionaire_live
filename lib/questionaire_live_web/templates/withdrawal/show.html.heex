@@ -1,0 +1,28 @@
+<h1>Show Withdrawal</h1>
+
+<ul>
+
+  <li>
+    <strong>Msisdn:</strong>
+    <%= @withdrawal.msisdn %>
+  </li>
+
+  <li>
+    <strong>Amount:</strong>
+    <%= @withdrawal.amount %>
+  </li>
+
+  <li>
+    <strong>Reference number:</strong>
+    <%= @withdrawal.reference_number %>
+  </li>
+
+  <li>
+    <strong>Account transaction:</strong>
+    <%= @withdrawal.account_transaction_id %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.withdrawal_path(@conn, :edit, @withdrawal) %></span> |
+<span><%= link "Back", to: Routes.withdrawal_path(@conn, :index) %></span>
