@@ -1,5 +1,11 @@
 /* This file is for your main application CSS */
-@import "./phoenix.css";
+/* @import "./phoenix.css"; */
+@import "materialize.css";
+@import "style.css";
+@import "style.min.css";
+@import "./themes/all-themes.css";
+
+
 
 /* Alerts and form errors used by phx.new */
 .alert {

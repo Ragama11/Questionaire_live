@@ -10,7 +10,7 @@ defmodule QuestionaireLive.Account.Accounts do
     field :account_number, :string
     field :balance, :string
     field :currency, :string
-    has_one :user, QuestionaireLive.Users.User
+    belongs_to :user, QuestionaireLive.Users.User
 
     timestamps()
   end

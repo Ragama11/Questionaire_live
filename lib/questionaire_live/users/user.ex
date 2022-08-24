@@ -1,6 +1,9 @@
 defmodule QuestionaireLive.Users.User do
   use Ecto.Schema
   use Pow.Ecto.Schema
+  alias QuestionaireLive.Account.Accounts
+  alias QuestionaireLive.Repo
+
 
 
 
@@ -10,7 +13,7 @@ defmodule QuestionaireLive.Users.User do
     field :first_name, :string
     field :last_name, :string
     field :phone, :string
-    belongs_to :accounts, QuestionaireLive.Account.Accounts
+    has_one :account, QuestionaireLive.Account.Accounts
 
     has_many :user_quizes, QuestionaireLive.Quizes.User_quiz
 
@@ -25,5 +28,10 @@ defmodule QuestionaireLive.Users.User do
   end
 
 
-
+  def add_account_user(user, details) do
+    user
+    |> Ecto.build_assoc(:account)
+    |> Accounts.changeset(details)
+    |> Repo.insert()
+  end
 end

@@ -41,7 +41,7 @@ defmodule QuestionaireLive.QuizesFixtures do
       |> Enum.into(%{
         question: "some question"
       })
-      |> QuestionaireLive.Quizes.create_question()
+      |> QuestionaireLive.Quizes.Question.create_question()
 
     question
   end
@@ -70,7 +70,7 @@ defmodule QuestionaireLive.QuizesFixtures do
         result: 42,
         status: "some status"
       })
-      |> QuestionaireLive.Quizes.create_user_quiz()
+      |> QuestionaireLive.Quizes.User_quiz.create_user_quiz()
 
     user_quiz
   end
